@@ -7,5 +7,8 @@ public class ItemData
     public string ItemName { get; set; } 
     public int Price { get; set; }
     public int Count { get; set; }
-
+    public ItemData()
+    {
+        ItemId = Guid.NewGuid().ToString();
+    }
 }
