@@ -19,4 +19,20 @@ public class SellingController : ControllerBase
             Message = "Hello World"
         });
     }
+    [HttpPost("buy")]
+    public async Task<IActionResult> BuyItems(string receipt)
+    {
+        var SaleData = new SaleData()
+        {
+            SaleDate = DateTime.Now,
+            DictionaryJson = receipt
+        };
+        _context.SaleDatass.Add(SaleData);
+        _context.SaveChanges();
+
+        return Ok( new {
+            Message = "Hello World"
+        });
+    }
+
 }
